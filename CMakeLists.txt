@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.6)
-project( OpenCVExample )
+project( OpenCVExample LANGUAGES C CXX CUDA)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
@@ -20,3 +20,7 @@ target_link_libraries( FilteringOpenCV ${OpenCV_LIBS} )
 
 add_executable( Filtering Filtering.cpp )
 target_link_libraries( Filtering ${OpenCV_LIBS} )
+
+add_executable( AmazingFilter AmazingFilter.cu)
+target_link_libraries( AmazingFilter ${OpenCV_LIBS})
+set_target_properties( AmazingFilter PROPERTIES CUDA_ARCHITECTURES "native" )
