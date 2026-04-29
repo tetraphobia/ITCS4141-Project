@@ -24,3 +24,6 @@ target_link_libraries( Filtering ${OpenCV_LIBS} )
 add_executable( AmazingFilter AmazingFilter.cu)
 target_link_libraries( AmazingFilter ${OpenCV_LIBS})
 set_target_properties( AmazingFilter PROPERTIES CUDA_ARCHITECTURES "native" )
+
+add_executable( AmazingCPUFilter AmazingCPUFilter.cpp)
+target_link_libraries( AmazingCPUFilter ${OpenCV_LIBS} OpenMP::OpenMP_CXX)
